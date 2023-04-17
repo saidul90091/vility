@@ -1,3 +1,42 @@
+// preloader 
+$(window).on("load", function () {
+	var preLoder = $("#preloader");
+	preLoder.fadeOut(1000);
+
+  });
+
+// scrolling button
+var btn = $('#scroll');
+
+$(window).scroll(function() {
+  if ($(window).scrollTop() > 300) {
+    btn.addClass('show');
+  } else {
+    btn.removeClass('show');
+  }
+});
+
+btn.on('click', function(e) {
+  e.preventDefault();
+  $('html, body').animate({scrollTop:0}, '300');
+});
+
+
+// nav bar 
+var fixed_top = $(".header_section");
+    $(window).on("scroll", function () {
+        if ($(this).scrollTop() > 100) {
+            fixed_top.addClass("menu-fixed animated fadeInDown");
+            fixed_top.removeClass("slideInUp");
+            $("body").addClass("body-padding");
+        } else {
+            fixed_top.removeClass("menu-fixed fadeInDown");
+            fixed_top.addClass("slideInUp");
+            $("body").removeClass("body-padding");
+        }
+    });
+
+
 // Initialize Swiper 
 var swiper = new Swiper(".mySwiper", {
     slidesPerView: 1,
@@ -29,7 +68,7 @@ var swiper = new Swiper(".mySwiper", {
       },
   
       1024: {
-        slidesPerView: 4,
+        slidesPerView: 3.5,
         spaceBetween: 20,
       },
       1400:{
@@ -37,16 +76,30 @@ var swiper = new Swiper(".mySwiper", {
         spaceBetween: 20,
       },
       1650: {
-        slidesPerView: 4.5,
+        slidesPerView: 5,
         spaceBetween: 20,
       },
     },
   });
 
-  // odometer
-  setInterval (() =>{
-    odometer.innerHTML = 12345;
-},300)
+
+// odometer counter
+$(".odometer").each(function () {
+  $(this).isInViewport(function (status) {
+    if (status === "entered") {
+      for (
+        var i = 0;
+        i < document.querySelectorAll(".odometer").length;
+        i++
+      ) {
+        var el = document.querySelectorAll(".odometer")[i];
+        el.innerHTML = el.getAttribute("data-odometer-final");
+      }
+    }
+  });
+});
+
 
 // wow 
 new WOW().init();
+

@@ -8,6 +8,7 @@ body {
     box-sizing: border-box;
 }
 
+
 h1 {
     font-size: 102px;
     line-height: 1.2;
@@ -61,6 +62,15 @@ p {
     line-height: 1.5;
     color: #183E59;
 
+}
+
+#preloader {
+    background: #4c44b9 url(../images/loader-img/spinner.gif) no-repeat center;
+    background-size: 5%;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    z-index: 99999999;
 }
 
 .text_blue {
@@ -117,20 +127,66 @@ p {
     padding: 15px 20px;
     background: linear-gradient(90deg, #303CC1 0%, #D759AB 100%);
     border-radius: 25px;
-    transition: .3s;
+    transition: .5s;
 }
 
 .button:hover {
     background: linear-gradient(90deg, #D759AB 0%, #303CC1 100%);
+    transition: .5s;
+}
+
+/*----Scrolling Top To Bottom -----*/
+#scroll {
+    background: linear-gradient(180deg, #303CC1 0%, #D759AB 100%);
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 20px;
+    position: fixed;
+    right: 20px;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+    bottom: 20px;
+    cursor: pointer;
+}
+
+#click i {
+    color: #FFFFFF;
+}
+
+#scroll:hover {
+    background: linear-gradient(180deg, #D759AB 0%, #303CC1 100%);
     transition: .3s;
+}
+
+#scroll:hover #click i {
+    color: #ffffff;
+}
+
+#scroll.show {
+    opacity: 1;
+    visibility: visible;
 }
 
 
 /*======== header area =======*/
-.navbar {
-    /* background: #2b057c; */
-}
 
+.header_section{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    width: 100%;
+}
+.menu-fixed{
+    background: #2d097c;
+    z-index: 999;
+    position: fixed;
+    top: 0;
+}
 /*======== hero area =========*/
 .hero_section {
     width: 100%;
@@ -158,7 +214,7 @@ p {
     z-index: 1;
 }
 
-.bottom_shape {
+.bottom_shape img {
     width: 100%;
     margin-top: -320px;
 
@@ -229,6 +285,7 @@ p {
     margin-left: -300px;
     transition: .3s;
 }
+
 .about_image img:hover {
     transform: scale(1.02);
     transition: .5s;
@@ -268,29 +325,33 @@ p {
     margin-left: -270px;
     transition: .3s;
 }
+
 .event_image img:hover {
-   transform: scale(1.03);
-   transition: .3s;
+    transform: scale(1.03);
+    transition: .3s;
 }
 
 .event_details {
     margin-left: -50px;
 }
-.event_details ul{
+
+.event_details ul {
     padding-left: 0;
 }
-.event_details ul li{
+
+.event_details ul li {
     font-size: 18px;
     line-height: 1.5;
     list-style-type: none;
     margin-bottom: 15px;
-    
+
 }
-.event_details ul li i{
+
+.event_details ul li i {
     color: #1A4EBA;
 }
 
-/*===== feature area ======*/
+/*===== amaizing feature area ======*/
 .feature_section {
     background: #F8FAFF;
     background-image: url(../images/feature-img/feature-bg1.png);
@@ -302,8 +363,17 @@ p {
     text-align: center;
     padding-top: 50px;
     padding-bottom: 50px;
+    border: 1px solid;
+    border-color: transparent;
     background-color: #ffffff;
     border-radius: 18px;
+    transition: .3s;
+}
+
+.feature_item:hover {
+    transform: scale(1.1);
+    border: 1px solid #FFD3E6;
+    transition: .3s;
 }
 
 .feature_two {
@@ -336,10 +406,11 @@ p {
     border-radius: 10px;
     transition: .3s;
 }
+
 .ticket_item:hover {
- background:#FFD3E6;
- transition: .3s;
- transform: scale(1.1);
+    background: #FFD3E6;
+    transition: .3s;
+    transform: scale(1.1);
 }
 
 
@@ -355,6 +426,9 @@ p {
     left: 54%;
     animation: glob-left 30s linear infinite;
     animation-delay: 0.2s;
+}
+.new_world_img img{
+    width: 100%;
 }
 
 .world_details {
@@ -388,8 +462,17 @@ p {
 .membership_card {
     text-align: center;
     padding: 30px;
+    border: 1px solid;
+    border-color: transparent;
     box-shadow: 0px 4px 20px rgba(143, 163, 177, 0.2);
     border-radius: 10px;
+    transition: .3s;
+}
+
+.membership_card:hover {
+    transform: scale(1.1);
+    transition: .3s;
+    border: 1px solid #FFD3E6;
 }
 
 
@@ -415,22 +498,26 @@ p {
     padding: 60px;
     border-radius: 20px;
 }
-.gift_thumb{
+
+.gift_thumb {
     position: relative;
     z-index: 1;
     margin-bottom: 60px;
     width: 100%;
     padding: 20px 40px;
 }
-.gift_thumb img{
+
+.gift_thumb img {
     width: 100%;
     transition: .3s;
 }
-.gift_thumb:hover img{
-    transform: skewX(-5deg);
+
+.gift_thumb:hover img {
+    transform: skewX(-3deg);
     transition: .3s;
 }
-.gift_thumb::before{
+
+.gift_thumb::before {
     position: absolute;
     top: 0;
     left: 0;
@@ -438,10 +525,12 @@ p {
     height: 100%;
     content: "";
     border: 2px solid #0CACEB;
+    border-radius: 30px;
     z-index: -1;
     animation: leftright 4s linear infinite;
 }
-.gift_thumb::after{
+
+.gift_thumb::after {
     position: absolute;
     top: 15px;
     left: 15px;
@@ -449,19 +538,23 @@ p {
     height: 100%;
     content: "";
     border: 2px solid #CD38D1;
+    border-radius: 30px;
     z-index: -1;
     animation: leftright2 4s linear infinite;
 }
+
 @keyframes leftright {
-    50%{
+    50% {
         transform: skewX(10deg);
     }
 }
+
 @keyframes leftright2 {
-    50%{
+    50% {
         transform: skewX(-10deg);
     }
 }
+
 /*===== faq area ======*/
 .accordion {
     padding: 0 100px;
@@ -558,6 +651,7 @@ p {
 }
 
 .footer_input input {
+    width: 100%;
     border: none;
     background: transparent;
 }
@@ -615,3 +709,82 @@ p {
     transform: translateY(-50%);
     background-color: white;
 }
+
+
+
+/* Responsiveess  */
+@media only screen and (max-width:480px) {
+    h1{
+        font-size: 30px;
+    }
+    h2{
+        font-size: 25px;
+    }
+
+    /* header area  */
+    .navbar{
+        background-color: #2d097c;
+        width: 100%;
+    }
+
+    /*===== hero area =====*/
+    .hero_section{
+        padding-top: 70px;
+       
+    }
+
+   /*======== about area =========*/
+.about_section {
+    background-image: none;
+    background-repeat: no-repeat;
+    background-position: right bottom;
+}
+
+.about_image img {
+    width: 100%;
+    height: 100%;
+    margin-left:0px;
+    transition: .3s;
+}
+
+.about_image img:hover {
+    transform: scale(1.02);
+    transition: .5s;
+}
+
+.about_details {
+    margin-left: 0px;
+}
+/*====== event and parties area ======*/
+.event_section {
+    background-image: none;
+
+}
+
+.event_image img {
+    width: 100%;
+    margin-left: 0px;
+    transition: .3s;
+}
+
+.event_details {
+    margin-left: 0px;
+}
+
+
+/* divider css  */
+.divider_list li a{
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.divider_list li+li {
+    padding-left: 15px;
+    margin-left: 15px;
+}
+
+}
+
+
+
+
