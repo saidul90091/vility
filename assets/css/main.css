@@ -274,6 +274,84 @@ p {
     }
 }
 
+
+.hero-thumb {
+    transform: translateY(200px);
+    margin-top: -220px;
+    border-radius: 20px;
+    margin-left:-400px;
+    z-index: 99;
+    width: 100%;
+    position: relative;
+  }
+
+  .hero-thumb .video-btn {
+    position: absolute;
+    top: 13%;
+    left: 10%;
+    transform: translate(-50%, -50%);
+    background-color:linear-gradient(90deg, #303CC1 0%, #D759AB 100%);
+    width: 40px;
+    height: 40px;
+    display: block;
+    line-height: 80px;
+    border-radius: 50%;
+    text-align: center;
+  }
+  .hero-thumb .video-btn::before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    display: block;
+    border-radius: 50%;
+    background: linear-gradient(90deg, #303CC1 0%, #D759AB 100%);
+    animation: tapvideo 1.1s linear infinite;
+    animation-delay: 0.4s;
+  }
+  .hero-thumb .video-btn::after {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    border-radius: 50%;
+    background: linear-gradient(90deg, #303CC1 0%, #D759AB 100%);
+    animation: tapvideo 1.2s linear infinite;
+    animation-delay: 0.4s;
+  }
+  .hero-thumb .video-btn i {
+    color:white;
+    font-size: 16px;
+    top: 12px;
+    left: 14px;
+    position: absolute;
+    z-index: 1;
+  }
+
+  @keyframes tapvideo {
+    100% {
+      transform: scale(1.9);
+      opacity: 0.5;
+    }
+    100% {
+      transform: scale(2.9);
+      opacity: 0;
+    }
+  }
+  @keyframes tapvideo {
+    100% {
+      transform: scale(1.9);
+      opacity: 0.5;
+    }
+    100% {
+      transform: scale(2.9);
+      opacity: 0;
+    }
+  }
+
 /*======== about area =========*/
 .about_section {
     background-image: url(../images/about-img/animated.svg);

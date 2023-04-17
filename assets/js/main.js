@@ -103,3 +103,11 @@ $(".odometer").each(function () {
 // wow 
 new WOW().init();
 
+	//Magnifiq pupup
+	$('.video-btn').magnificPopup({
+		type: 'iframe',
+		callbacks: {
+			
+	  	}
+	});
+
